@@ -13,7 +13,7 @@
 
 ;;; random generators
 (defun should-negate-p () 
-  (equal (random 3) 0))
+  (equal (random 4) 0))
 
 (defun should-add-parantheses-p ()
   (equal (random 4) 0))
