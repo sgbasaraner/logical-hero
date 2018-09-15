@@ -122,5 +122,3 @@
       ((find #\p expr :test #'equal) (nth (random 3) 
         (remove-if (lambda (str) (equal str solution)) '("p" "T" "F" "¬p"))))
       (t (negate-block solution)))))
-
-(let ((expr (make-random-expression))) (print expr) (print (make-wrong-answer expr)) (solve-expression expr))
