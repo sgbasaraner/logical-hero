@@ -1,3 +1,5 @@
+(require 'cl)
+
 ;;; parameters for convenience
 (defparameter *and* (string "∧")
   "Logical AND operator.")
@@ -112,3 +114,14 @@
   (if (has-parantheses-p expr)
     (negate-block (solve-without-parantheses (remove-parantheses expr)))
     (solve-without-parantheses expr)))
+
+;; generates a wrong but not completely unbelievable answer
+(defun make-wrong-answer (expr)
+  (let ((solution (solve-expression expr)))
+    (cond 
+      ((equal solution (string "¬p")) (make-random-item))
+      ((equal solution (string "p")) (negate-block (make-random-item)))
+      ((find #\p expr :test #'equal) (nth (random 3) (remove-if (lambda (str) (equal str solution)) '("p" "T" "F" "¬p"))))
+      (t (negate-block solution)))))
+
+(let ((expr (make-random-expression))) (print expr) (print (make-wrong-answer expr)) (solve-expression expr))
