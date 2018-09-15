@@ -1,5 +1,3 @@
-(require 'cl)
-
 ;;; parameters for convenience
 (defparameter *and* (string "∧")
   "Logical AND operator.")
