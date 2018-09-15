@@ -94,7 +94,6 @@
   ((equal (subseq block 0 1) (string "¬")) (string "p"))
   (t (concatenate 'string "¬" block))))
 
-
 (defun solve-without-parantheses (expr)
   (let ((operator (get-operator expr)))
     (cond 
